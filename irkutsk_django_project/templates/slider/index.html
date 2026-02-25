@@ -4,13 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Слайдер</title>
-
-    <!-- моя статика CSS -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-
-    <!-- мой логотип -->
-    <img src="{% static 'img/nasa-logo 1.png' %}">
+    <title>Космическое агентство</title>
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -19,28 +13,154 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 
-    <!-- Стили специфичные для слайдера (из приложения) -->
-    <link rel="stylesheet" href="{% static 'slider/css/slider.css' %}">
+    <!-- Google Fonts Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Ваши стили -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-
 <body>
-    <!-- Свои стили (из общей папки static) -->
-      <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-    <div class="container mt-5">
-        <h1 class="text-center mb-4">Галерея изображений, разбираться с django filer</h1>
+    <!-- ========== ШАПКА ========== -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <!-- Логотип -->
+                <a href="/" class="logo-link">
+                    <img src="{% static 'img/nasa-logo 1.jpg' %}" alt="NASA Logo" class="logo">
+                </a>
 
-        <!-- Здесь будет слайдер -->
-        <div class="row">
-            <div class="col-12">
-                <p class="text-center">Слайдер появится здесь после настройки моделей, и когда я разберусь с django filer</p>
+                <!-- Кнопка "Войти" (в виде текстовой ссылки) -->
+                <a href="#" class="login-link">Войти</a>
             </div>
         </div>
-    </div>
+    </header>
 
-    <!-- JavaScript -->
+    <!-- ========== ПЕРВЫЙ БЛОК ========== -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <!-- Левая колонка с текстом -->
+                <div class="col-lg-6 hero-content">
+                    <h1 class="hero-title">
+                        Национальное управление по аэронавтике и исследованию космического пространства
+                    </h1>
+
+                    <p class="hero-text">
+                        Национальное управление по аэронавтике и исследованию космического пространства — ведомство, относящееся к федеральному правительству США и подчиняющееся непосредственно президенту США.
+                    </p>
+
+                    <!-- Заголовок "Специальные программы" -->
+                    <h2 class="features-title">Специальные программы</h2>
+
+                    <!-- Сетка преимуществ 2x2 -->
+                    <div class="features-grid">
+                        <div class="row g-4">
+                            <div class="col-6">
+                                <div class="feature-item">
+                                    <span class="feature-dot"></span>
+                                    <div class="feature-text">
+                                        <strong>Служба шаттла</strong>
+                                        <span>пилотируемые корабли</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="feature-item">
+                                    <span class="feature-dot"></span>
+                                    <div class="feature-text">
+                                        <strong>Лучшее телескопическое оборудование</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="feature-item">
+                                    <span class="feature-dot"></span>
+                                    <div class="feature-text">
+                                        <strong>Исследовательские станции на Луне</strong>
+                                        <span>— шаг к новым открытиям!</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="feature-item">
+                                    <span class="feature-dot"></span>
+                                    <div class="feature-text">
+                                        <strong>Золотая медаль по научным исследованиям</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Правая колонка с фото Земли -->
+                <div class="col-lg-6 hero-image-col">
+                    <div class="hero-image-wrapper">
+                        <img src="{% static 'img/земля.png' %}" alt="Земля из космоса" class="img-fluid hero-earth-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== БЛОК СЛАЙДЕРА ========== -->
+    <section class="slider-section">
+        <div class="container">
+            <h2 class="section-title">Фотографии</h2>
+
+            <!-- Большой слайдер -->
+            <div class="slider-for">
+                {% for slide in slides %}
+                    <div class="slide-item">
+                        <img src="{{ slide.image.url }}" alt="{{ slide.title }}" class="main-image">
+                    </div>
+                {% empty %}
+                    <div class="alert alert-info">Нет изображений в слайдере</div>
+                {% endfor %}
+            </div>
+
+            <!-- Миниатюры -->
+            <div class="slider-nav">
+                {% for slide in slides %}
+                    <div class="nav-item">
+                        <img src="{{ slide.image.url }}" alt="{{ slide.title }}" class="thumbnail-image">
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Скрипты -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('.slider-for').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: true,
+                fade: true,
+                asNavFor: '.slider-nav'
+            });
+
+            $('.slider-nav').slick({
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                asNavFor: '.slider-for',
+                dots: false,
+                centerMode: true,
+                focusOnSelect: true,
+                responsive: [
+                    { breakpoint: 768, settings: { slidesToShow: 3 } },
+                    { breakpoint: 480, settings: { slidesToShow: 2 } }
+                ]
+            });
+        });
+    </script>
 </body>
 </html>
