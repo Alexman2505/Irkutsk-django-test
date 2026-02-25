@@ -24,7 +24,7 @@
 <body>
 
     <!-- ========== ШАПКА ========== -->
-        <header class="header py-4 border-bottom">
+        <header class="header py-4">
             <div class="container">
                 <div class="row align-items-center">
                     <!-- Логотип слева (3 колонки) -->
@@ -50,87 +50,59 @@
             </div>
         </header>
 
-    <!-- ========== ПЕРВЫЙ БЛОК (фото слева, текст справа) ========== -->
-    <section class="hero-section py-5">
-        <div class="container">
-            <div class="col-12 text-center">
-                <h1 class="display-4 fw-bold mb-4 text-white">
-                Космическое агентство
-                </h1>
-            </div>
-            <div class="row g-5 align-items-center">
-                <!-- Левая колонка - фото Земли -->
-                <div class="col-lg-6">
-                    <div class="text-center text-lg-start">
-                        <img src="{% static 'img/земля.png' %}" alt="Earth" class="img-fluid rounded-4" style="max-width: 90%; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
-                    </div>
-                </div>
-
-                <!-- Правая колонка - текст и преимущества  -->
-                <div class="col-lg-6">
-                    {% comment %} <h1 class="display-4 fw-bold mb-4 text-white">
+            <!-- ========== ПЕРВЫЙ БЛОК ========== -->
+            <section class="py-5">
+                <div class="container">
+                    <!-- Заголовок и описание -->
+                    <h1 class="display-4 fw-bold text-center text-white mb-3">
                         Космическое агентство
-                    </h1> {% endcomment %}
-
-                    <p class="text-secondary mb-5" style="color: #9CA3AF !important; max-width: 90%;">
+                    </h1>
+                    <p class="text-white-50 text-center mb-5 mx-auto" style="max-width: 700px;">
                         Национальное управление по аэронавтике и исследованию космического пространства — ведомство, относящееся к федеральному правительству США и подчиняющееся непосредственно президенту США.
                     </p>
 
-                    <!-- Преимущества с ВЕКТОРНЫМИ иконками -->
-                    <div class="row g-4">
-                        <!-- Первое преимущество с иконкой -->
-                        <div class="col-6">
-                            <div class="d-flex gap-3">
-                                <!-- Векторная иконка 1 (SVG) -->
-                                <img src="{% static 'img/icon-rocket.svg' %}" alt="" class="feature-icon" style="width: 32px; height: 32px;">
-                                <div>
-                                    <div class="text-white fw-bold">Спейс шаттлы</div>
-                                    <div class="text-secondary">пилотируемые корабли</div>
-                                </div>
-                            </div>
+                    <!-- Ряд с фото и преимуществами -->
+                    <div class="row">
+                        <!-- Левая колонка - фото Земли -->
+                        <div class="col-md-6 mb-4 mb-md-0">
+                            <img src="{% static 'img/земля.png' %}" alt="Earth" class="img-fluid rounded-4 shadow-lg">
                         </div>
 
-                        <!-- Второе преимущество с иконкой -->
-                        <div class="col-6">
-                            <div class="d-flex gap-3">
-                                <!-- Векторная иконка 2 (SVG) -->
-                                <img src="{% static 'img/icon-telescope.svg' %}" alt="" class="feature-icon" style="width: 32px; height: 32px;">
-                                <div>
-                                    <div class="text-white fw-bold">Лучшее телескопическое оборудование</div>
+                        <!-- Правая колонка - преимущества -->
+                        <div class="col-md-6">
+                            <!-- Первый ряд преимуществ -->
+                            <div class="row g-4">
+                                <div class="col-6 text-center">
+                                    <img src="{% static 'img/icon-rocket.svg' %}" alt="" class="mb-3" width="64" height="64">
+                                    <div class="fw-SemiBold text-white">Спейс шаттлы - </div>
+                                    <div class="fw-SemiBold text-white">пилотируемые</div>
+                                    <div class="fw-SemiBold text-white">корабли</div>
                                 </div>
-                            </div>
-                        </div>
-
-                        <!-- Третье преимущество с иконкой -->
-                        <div class="col-6">
-                            <div class="d-flex gap-3">
-                                <!-- Векторная иконка 3 (SVG) -->
-                                <img src="{% static 'img/icon-moon.svg' %}" alt="" class="feature-icon" style="width: 32px; height: 32px;">
-                                <div>
-                                    <div class="text-white fw-bold">Исследовательские станции на Луне</div>
-                                    <div class="text-secondary">— шаг к новым открытиям!</div>
+                                <div class="col-6 text-center">
+                                    <img src="{% static 'img/icon-telescope.svg' %}" alt="" class="mb-3" width="64" height="64">
+                                    <div class="fw-SemiBold text-white">Лучшее</div>
+                                    <div class="fw-SemiBold text-white">телескопическое</div>
+                                    <div class="fw-SemiBold text-white">оборудование</div>
                                 </div>
-                            </div>
-                        </div>
-
-                        <!-- Четвертое преимущество с иконкой -->
-                        <div class="col-6">
-                            <div class="d-flex gap-3">
-                                <!-- Векторная иконка 4 (SVG) -->
-                                <img src="{% static 'img/icon-medal.svg' %}" alt="" class="feature-icon" style="width: 32px; height: 32px;">
-                                <div>
-                                    <div class="text-white fw-bold">Золотая медаль по научным исследованиям</div>
+                                <div class="col-6 text-center">
+                                    <img src="{% static 'img/icon-moon.svg' %}" alt="" class="mb-3" width="64" height="64">
+                                    <div class="fw-SemiBold text-white">Исследовательские</div>
+                                    <div class="fw-SemiBold text-white">станции на Луне — шаг</div>
+                                    <div class="fw-SemiBold text-white">к новым открытиям!</div>
+                                </div>
+                                <div class="col-6 text-center">
+                                    <img src="{% static 'img/icon-medal.svg' %}" alt="" class="mb-3" width="64" height="64">
+                                    <div class="fw-SemiBold text-white">Золотая медаль</div>
+                                    <div class="fw-SemiBold text-white">по научным</div>
+                                    <div class="fw-SemiBold text-white">исследованиям</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
+            </section>
     <!-- ========== СЛАЙДЕР ========== -->
-    <section class="slider-section py-5 border-top">
+    <section class="slider-section py-5">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12">
