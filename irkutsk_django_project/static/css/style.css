@@ -19,7 +19,7 @@ body {
 /* Контейнер для слайдера со стрелками */
 .slider-nav-wrapper {
     position: relative;
-    padding: 0 70px;  /* Отступы для стрелок */
+    padding: 0 70px;
 }
 
 /* Кастомные кнопки с PNG */
@@ -55,23 +55,22 @@ body {
     height: 48px;
 }
 
-/* Эффект при наведении на стрелки */
 .slick-custom-prev:hover img,
 .slick-custom-next:hover img {
     opacity: 0.8;
 }
 
-/* Убираем лишние отступы у slick-slide */
+/* Отступы между слайдами */
 .slick-slide {
     margin: 0;
 }
 
 .slick-list {
-    margin: 0 -4px; /* Компенсируем padding у слайдов */
+    margin: 0 -4px;
 }
 
 .slick-slide > div {
-    margin: 0 4px; /* Отступ между слайдами */
+    margin: 0 4px;
 }
 
 /* Для большого слайдера убираем отступы */
@@ -83,23 +82,14 @@ body {
     margin: 0;
 }
 
-/* Стили для изображений большого слайдера */
+/* Общие стили для изображений (то, что не в inline) */
 .slider-for img {
-    width: 100%;
-    height: 529px;
     object-fit: cover;
-    object-position: bottom !important; /* 50% по горизонтали, 100% по вертикали (низ) */
-    border-radius: 4px;
+    cursor: pointer;
 }
 
-/* Стили для изображений миниатюр */
 .slider-nav img {
-    width: 100%;
-    height: 124px;
     object-fit: cover;
-    object-position: center;
-    border-radius: 4px;
-    border: 2px solid transparent;
     transition: all 0.2s ease;
 }
 
@@ -113,7 +103,6 @@ body {
     opacity: 0.9;
 }
 
-/* Активная миниатюра */
 .slider-nav .slick-current {
     opacity: 1;
 }
@@ -122,18 +111,14 @@ body {
     border-color: #FF342B !important;
 }
 
-/* Адаптивность для мобильных */
+/* Адаптивность */
 @media (max-width: 768px) {
     .slider-nav-wrapper {
         padding: 0 60px;
     }
 
-    .slider-for img {
-        height: 400px; /* Чуть меньше на планшетах */
-    }
-
     .slider-nav img {
-        height: 100px;
+        height: 100px !important;
     }
 }
 
@@ -142,12 +127,8 @@ body {
         padding: 0 50px;
     }
 
-    .slider-for img {
-        height: 300px; /* Ещё меньше на телефонах */
-    }
-
     .slider-nav img {
-        height: 80px;
+        height: 80px !important;
     }
 
     .slick-custom-prev img,
@@ -163,6 +144,6 @@ body {
     }
 
     .slider-nav img {
-        height: 70px;
+        height: 70px !important;
     }
 }
