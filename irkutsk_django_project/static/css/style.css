@@ -1,341 +1,79 @@
-/* ===== ОБЩИЕ СТИЛИ ===== */
 :root {
-    --bg-dark: #0a0a0a;
-    --text-white: #ffffff;
-    --text-gray: #999999;
-    --accent-color: #4a90e2;
-    --border-color: #333333;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    --bg-dark: #0A0C0E;
+    --accent-blue: #2F7DE6;
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
     background-color: var(--bg-dark);
-    color: var(--text-white);
-    line-height: 1.6;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
 
-/* ===== ШАПКА ===== */
-.header {
-    padding: 30px 0;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.header-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo-link {
-    display: inline-block;
-}
-
-.logo {
-    height: 50px;
-    width: auto;
-    filter: brightness(0) invert(1); /* Делаем логотип белым */
-}
-
-.login-link {
-    color: var(--text-white);
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-    padding: 8px 20px;
-    border: 1px solid var(--border-color);
-    border-radius: 30px;
-    transition: all 0.3s;
-}
-
-.login-link:hover {
-    background: rgba(255,255,255,0.1);
-    border-color: var(--text-white);
-}
-
-/* ===== HERO СЕКЦИЯ ===== */
-.hero-section {
-    padding: 60px 0 80px;
-}
-
-.hero-title {
-    font-size: 36px;
-    font-weight: 600;
-    line-height: 1.3;
-    margin-bottom: 25px;
-    max-width: 500px;
-}
-
-.hero-text {
-    font-size: 14px;
-    color: var(--text-gray);
-    margin-bottom: 40px;
-    max-width: 450px;
-    line-height: 1.8;
-}
-
-/* Заголовок "Специальные программы" */
-.features-title {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 25px;
-    color: var(--text-white);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* Сетка преимуществ */
-.features-grid {
-    margin-bottom: 30px;
-}
-
-.feature-item {
-    display: flex;
-    gap: 15px;
-    padding: 15px;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    transition: all 0.3s;
-    min-height: 100px;
-}
-
-.feature-item:hover {
-    border-color: var(--accent-color);
-    background: rgba(74, 144, 226, 0.05);
-}
-
-.feature-dot {
-    width: 8px;
-    height: 8px;
-    background: var(--accent-color);
-    border-radius: 50%;
-    margin-top: 6px;
-    flex-shrink: 0;
-}
-
-.feature-text {
-    display: flex;
-    flex-direction: column;
-}
-
-.feature-text strong {
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 4px;
-    color: var(--text-white);
-}
-
-.feature-text span {
-    font-size: 12px;
-    color: var(--text-gray);
-    line-height: 1.4;
-}
-
-/* Правая колонка с фото Земли */
-.hero-image-col {
-    position: relative;
-}
-
-.hero-image-wrapper {
-    position: relative;
-    text-align: center;
-}
-
-.hero-earth-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-}
-
-/* ===== СЛАЙДЕР ===== */
-.slider-section {
-    padding: 60px 0 100px;
-    border-top: 1px solid var(--border-color);
-}
-
-.section-title {
-    font-size: 32px;
-    font-weight: 600;
-    margin-bottom: 50px;
-    position: relative;
-    display: inline-block;
-}
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 0;
-    width: 60px;
-    height: 3px;
-    background: var(--accent-color);
-}
-
-/* Большой слайдер */
-.slider-for {
-    margin-bottom: 30px;
-}
-
-.slider-for .slide-item {
-    outline: none;
-    border-radius: 12px;
-    overflow: hidden;
-    cursor: pointer;
-}
-
-.slider-for .main-image {
-    width: 100%;
-    height: 500px;
-    object-fit: cover;          /* Сохраняем пропорции */
-    object-position: center bottom; /* Обрезаем по нижней части */
-    border-radius: 12px;
-}
-
-/* Миниатюры */
-.slider-nav {
-    padding: 0 40px;
-}
-
-.slider-nav .nav-item {
-    padding: 0 8px;
-    outline: none;
-    cursor: pointer;
-    opacity: 0.6;
-    transition: opacity 0.3s;
-}
-
-.slider-nav .nav-item:hover {
+/* Стили для иконок */
+.feature-icon {
+    /*filter: brightness(0) invert(1); /* Делаем иконки белыми */
     opacity: 0.9;
+    transition: opacity 0.2s;
 }
 
-.slider-nav .slick-current .nav-item {
+.feature-icon:hover {
     opacity: 1;
 }
 
-.slider-nav .thumbnail-image {
-    width: 100%;
-    height: 80px;
-    object-fit: cover;
-    object-position: center bottom; /* Обрезаем по нижней части */
-    border-radius: 8px;
-    border: 2px solid transparent;
-    transition: border-color 0.3s;
-}
-
-.slider-nav .slick-current .thumbnail-image {
-    border-color: var(--accent-color);
+/* Текст */
+.text-secondary {
+    color: #9CA3AF !important;
 }
 
 /* Стрелки слайдера */
-.slick-prev,
-.slick-next {
+.slick-prev, .slick-next {
     width: 40px;
     height: 40px;
-    background: rgba(255,255,255,0.1);
+    background: #1E2126;
     border-radius: 50%;
     z-index: 10;
-    transition: all 0.3s;
 }
 
-.slick-prev:hover,
-.slick-next:hover {
-    background: var(--accent-color);
+.slick-prev:hover, .slick-next:hover {
+    background: var(--accent-blue);
 }
 
-.slick-prev:before,
-.slick-next:before {
-    color: var(--text-white);
+.slick-prev:before, .slick-next:before {
+    color: white;
+    opacity: 1;
+    font-size: 20px;
+}
+
+.slick-prev { left: -20px; }
+.slick-next { right: -20px; }
+
+/* Миниатюры */
+.slider-nav .slick-slide {
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+
+.slider-nav .slick-current {
     opacity: 1;
 }
 
-.slick-prev {
-    left: -20px;
+.slider-nav .slick-current img {
+    border-color: var(--accent-blue) !important;
 }
 
-.slick-next {
-    right: -20px;
+
+.btn-auth {
+    background-color: #FF342B;
+    border-color: #FF342B;
+    color: white;
+    padding: 12px 18px;  /* Как в макете */
+    border-radius: 4px;   /* Как в макете */
+    font-weight: 500;
+    transition: all 0.2s;
 }
 
-/* Адаптивность */
-@media (max-width: 991px) {
-    .hero-title {
-        font-size: 30px;
-        max-width: 100%;
-    }
-
-    .hero-text {
-        max-width: 100%;
-    }
-
-    .hero-image-col {
-        margin-top: 50px;
-    }
-
-    .slider-for .main-image {
-        height: 400px;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 26px;
-    }
-
-    .feature-item {
-        padding: 12px;
-    }
-
-    .feature-text strong {
-        font-size: 13px;
-    }
-
-    .feature-text span {
-        font-size: 11px;
-    }
-
-    .section-title {
-        font-size: 28px;
-    }
-
-    .slider-for .main-image {
-        height: 300px;
-    }
-
-    .slider-nav .thumbnail-image {
-        height: 70px;
-    }
-}
-
-@media (max-width: 576px) {
-    .hero-title {
-        font-size: 22px;
-    }
-
-    .feature-item {
-        min-height: 80px;
-    }
-
-    .slider-for .main-image {
-        height: 250px;
-    }
-
-    .slider-nav {
-        padding: 0 20px;
-    }
-
-    .slider-nav .thumbnail-image {
-        height: 60px;
-    }
+.btn-auth:hover {
+    background-color: #e62e26;  /* Чуть темнее при наведении */
+    border-color: #e62e26;
+    color: white;
 }

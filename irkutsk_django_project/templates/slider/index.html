@@ -18,117 +18,152 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Ваши стили -->
+    <!-- Дополнительные стили -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
 
     <!-- ========== ШАПКА ========== -->
-    <header class="header">
-        <div class="container">
-            <div class="header-inner">
-                <!-- Логотип -->
-                <a href="/" class="logo-link">
-                    <img src="{% static 'img/nasa-logo 1.jpg' %}" alt="NASA Logo" class="logo">
-                </a>
+        <header class="header py-4 border-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <!-- Логотип слева (3 колонки) -->
+                    <div class="col-3">
+                        <a href="/">
+                            <img src="{% static 'img/nasa-logo-1.png' %}" alt="NASA Logo" style="height: 80px;">
+                        </a>
+                    </div>
 
-                <!-- Кнопка "Войти" (в виде текстовой ссылки) -->
-                <a href="#" class="login-link">Войти</a>
+                    <!-- Меню по центру (6 колонок) -->
+                    <div class="col-6">
+                        <ul class="nav justify-content-center">
+                            <li class="nav-item"><a href="#" class="nav-link text-white">ПРЕИМУЩЕСТВА</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-white">ФОТОГРАФИИ</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Кнопка справа (3 колонки) -->
+                    <div class="col-3 text-end">
+                        <a href="#" class="btn btn-auth">ВХОД</a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </header>
+        </header>
 
-    <!-- ========== ПЕРВЫЙ БЛОК ========== -->
-    <section class="hero-section">
+    <!-- ========== ПЕРВЫЙ БЛОК (фото слева, текст справа) ========== -->
+    <section class="hero-section py-5">
         <div class="container">
-            <div class="row">
-                <!-- Левая колонка с текстом -->
-                <div class="col-lg-6 hero-content">
-                    <h1 class="hero-title">
-                        Национальное управление по аэронавтике и исследованию космического пространства
-                    </h1>
-
-                    <p class="hero-text">
-                        Национальное управление по аэронавтике и исследованию космического пространства — ведомство, относящееся к федеральному правительству США и подчиняющееся непосредственно президенту США.
-                    </p>
-
-                    <!-- Заголовок "Специальные программы" -->
-                    <h2 class="features-title">Специальные программы</h2>
-
-                    <!-- Сетка преимуществ 2x2 -->
-                    <div class="features-grid">
-                        <div class="row g-4">
-                            <div class="col-6">
-                                <div class="feature-item">
-                                    <span class="feature-dot"></span>
-                                    <div class="feature-text">
-                                        <strong>Служба шаттла</strong>
-                                        <span>пилотируемые корабли</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="feature-item">
-                                    <span class="feature-dot"></span>
-                                    <div class="feature-text">
-                                        <strong>Лучшее телескопическое оборудование</strong>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="feature-item">
-                                    <span class="feature-dot"></span>
-                                    <div class="feature-text">
-                                        <strong>Исследовательские станции на Луне</strong>
-                                        <span>— шаг к новым открытиям!</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="feature-item">
-                                    <span class="feature-dot"></span>
-                                    <div class="feature-text">
-                                        <strong>Золотая медаль по научным исследованиям</strong>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <div class="col-12 text-center">
+                <h1 class="display-4 fw-bold mb-4 text-white">
+                Космическое агентство
+                </h1>
+            </div>
+            <div class="row g-5 align-items-center">
+                <!-- Левая колонка - фото Земли -->
+                <div class="col-lg-6">
+                    <div class="text-center text-lg-start">
+                        <img src="{% static 'img/земля.png' %}" alt="Earth" class="img-fluid rounded-4" style="max-width: 90%; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
                     </div>
                 </div>
 
-                <!-- Правая колонка с фото Земли -->
-                <div class="col-lg-6 hero-image-col">
-                    <div class="hero-image-wrapper">
-                        <img src="{% static 'img/земля.png' %}" alt="Земля из космоса" class="img-fluid hero-earth-image">
+                <!-- Правая колонка - текст и преимущества  -->
+                <div class="col-lg-6">
+                    {% comment %} <h1 class="display-4 fw-bold mb-4 text-white">
+                        Космическое агентство
+                    </h1> {% endcomment %}
+
+                    <p class="text-secondary mb-5" style="color: #9CA3AF !important; max-width: 90%;">
+                        Национальное управление по аэронавтике и исследованию космического пространства — ведомство, относящееся к федеральному правительству США и подчиняющееся непосредственно президенту США.
+                    </p>
+
+                    <!-- Преимущества с ВЕКТОРНЫМИ иконками -->
+                    <div class="row g-4">
+                        <!-- Первое преимущество с иконкой -->
+                        <div class="col-6">
+                            <div class="d-flex gap-3">
+                                <!-- Векторная иконка 1 (SVG) -->
+                                <img src="{% static 'img/icon-rocket.svg' %}" alt="" class="feature-icon" style="width: 32px; height: 32px;">
+                                <div>
+                                    <div class="text-white fw-bold">Спейс шаттлы</div>
+                                    <div class="text-secondary">пилотируемые корабли</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Второе преимущество с иконкой -->
+                        <div class="col-6">
+                            <div class="d-flex gap-3">
+                                <!-- Векторная иконка 2 (SVG) -->
+                                <img src="{% static 'img/icon-telescope.svg' %}" alt="" class="feature-icon" style="width: 32px; height: 32px;">
+                                <div>
+                                    <div class="text-white fw-bold">Лучшее телескопическое оборудование</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Третье преимущество с иконкой -->
+                        <div class="col-6">
+                            <div class="d-flex gap-3">
+                                <!-- Векторная иконка 3 (SVG) -->
+                                <img src="{% static 'img/icon-moon.svg' %}" alt="" class="feature-icon" style="width: 32px; height: 32px;">
+                                <div>
+                                    <div class="text-white fw-bold">Исследовательские станции на Луне</div>
+                                    <div class="text-secondary">— шаг к новым открытиям!</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Четвертое преимущество с иконкой -->
+                        <div class="col-6">
+                            <div class="d-flex gap-3">
+                                <!-- Векторная иконка 4 (SVG) -->
+                                <img src="{% static 'img/icon-medal.svg' %}" alt="" class="feature-icon" style="width: 32px; height: 32px;">
+                                <div>
+                                    <div class="text-white fw-bold">Золотая медаль по научным исследованиям</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== БЛОК СЛАЙДЕРА ========== -->
-    <section class="slider-section">
+    <!-- ========== СЛАЙДЕР ========== -->
+    <section class="slider-section py-5 border-top">
         <div class="container">
-            <h2 class="section-title">Фотографии</h2>
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h2 class="display-5 fw-bold text-white">Фотографии</h2>
+                </div>
+            </div>
 
             <!-- Большой слайдер -->
-            <div class="slider-for">
-                {% for slide in slides %}
-                    <div class="slide-item">
-                        <img src="{{ slide.image.url }}" alt="{{ slide.title }}" class="main-image">
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="slider-for">
+                        {% for slide in slides %}
+                            <div class="px-2">
+                                <img src="{{ slide.image.url }}" alt="{{ slide.title }}" class="img-fluid rounded-4" style="width: 100%; height: 500px; object-fit: cover; object-position: center 30%;">
+                            </div>
+                        {% empty %}
+                            <div class="alert alert-dark">Нет изображений</div>
+                        {% endfor %}
                     </div>
-                {% empty %}
-                    <div class="alert alert-info">Нет изображений в слайдере</div>
-                {% endfor %}
+                </div>
             </div>
 
             <!-- Миниатюры -->
-            <div class="slider-nav">
-                {% for slide in slides %}
-                    <div class="nav-item">
-                        <img src="{{ slide.image.url }}" alt="{{ slide.title }}" class="thumbnail-image">
+            <div class="row">
+                <div class="col-12">
+                    <div class="slider-nav">
+                        {% for slide in slides %}
+                            <div class="px-2">
+                                <img src="{{ slide.image.url }}" alt="{{ slide.title }}" class="img-fluid rounded-3" style="width: 100%; height: 90px; object-fit: cover; object-position: center 30%; border: 2px solid transparent;">
+                            </div>
+                        {% endfor %}
                     </div>
-                {% endfor %}
+                </div>
             </div>
         </div>
     </section>
