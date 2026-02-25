@@ -11,7 +11,6 @@ class SliderImageAdmin(SortableAdminMixin, admin.ModelAdmin):
     list_filter = ['is_active']
     search_fields = ['title']
     list_per_page = 20
-    readonly_fields = ['created_at', 'updated_at']
 
     def image_preview(self, obj):
         if obj.image:
