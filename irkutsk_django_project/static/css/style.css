@@ -13,5 +13,156 @@ body {
 }
 
 .text-white-50 {
-    color: rgba(255, 255, 255, 0.7) !important; /* Bootstrap-стиль */
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Контейнер для слайдера со стрелками */
+.slider-nav-wrapper {
+    position: relative;
+    padding: 0 70px;  /* Отступы для стрелок */
+}
+
+/* Кастомные кнопки с PNG */
+.slick-custom-prev,
+.slick-custom-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 10;
+    line-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slick-custom-prev {
+    left: 0;
+}
+
+.slick-custom-next {
+    right: 0;
+}
+
+.slick-custom-prev img,
+.slick-custom-next img {
+    display: block;
+    transition: opacity 0.2s;
+    width: 48px;
+    height: 48px;
+}
+
+/* Эффект при наведении на стрелки */
+.slick-custom-prev:hover img,
+.slick-custom-next:hover img {
+    opacity: 0.8;
+}
+
+/* Убираем лишние отступы у slick-slide */
+.slick-slide {
+    margin: 0;
+}
+
+.slick-list {
+    margin: 0 -4px; /* Компенсируем padding у слайдов */
+}
+
+.slick-slide > div {
+    margin: 0 4px; /* Отступ между слайдами */
+}
+
+/* Для большого слайдера убираем отступы */
+.slider-for .slick-slide > div {
+    margin: 0;
+}
+
+.slider-for .slick-list {
+    margin: 0;
+}
+
+/* Стили для изображений большого слайдера */
+.slider-for img {
+    width: 100%;
+    height: 529px;
+    object-fit: cover;
+    object-position: bottom !important; /* 50% по горизонтали, 100% по вертикали (низ) */
+    border-radius: 4px;
+}
+
+/* Стили для изображений миниатюр */
+.slider-nav img {
+    width: 100%;
+    height: 124px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+/* Затемняем неактивные миниатюры */
+.slider-nav .slick-slide {
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+
+.slider-nav .slick-slide:hover img {
+    opacity: 0.9;
+}
+
+/* Активная миниатюра */
+.slider-nav .slick-current {
+    opacity: 1;
+}
+
+.slider-nav .slick-current img {
+    border-color: #FF342B !important;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .slider-nav-wrapper {
+        padding: 0 60px;
+    }
+
+    .slider-for img {
+        height: 400px; /* Чуть меньше на планшетах */
+    }
+
+    .slider-nav img {
+        height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slider-nav-wrapper {
+        padding: 0 50px;
+    }
+
+    .slider-for img {
+        height: 300px; /* Ещё меньше на телефонах */
+    }
+
+    .slider-nav img {
+        height: 80px;
+    }
+
+    .slick-custom-prev img,
+    .slick-custom-next img {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 360px) {
+    .slider-nav-wrapper {
+        padding: 0 45px;
+    }
+
+    .slider-nav img {
+        height: 70px;
+    }
 }

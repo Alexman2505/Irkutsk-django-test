@@ -101,73 +101,101 @@
                     </div>
                 </div>
             </section>
-    <!-- ========== СЛАЙДЕР ========== -->
-    <section class="slider-section py-5">
-        <div class="container">
-            <div class="row mb-5">
-                <div class="col-12">
-                    <h2 class="display-5 fw-bold text-white">Фотографии</h2>
-                </div>
-            </div>
 
-            <!-- Большой слайдер -->
-            <div class="row mb-4">
-                <div class="col-12">
-                    <div class="slider-for">
-                        {% for slide in slides %}
-                            <div class="px-2">
-                                <img src="{{ slide.image.url }}" alt="{{ slide.title }}" class="img-fluid rounded-4" style="width: 100%; height: 500px; object-fit: cover; object-position: center 30%;">
+            <!-- ========== СЛАЙДЕР ========== -->
+            <section class="slider-section py-5">
+                <div class="container">
+                    <div class="row mb-5">
+                        <div class="col-12">
+                            <h2 class="display-5 fw-bold text-white text-center">Фотографии</h2>
+                            {% comment %} <h2 class="display-5 fw-bold text-white ">Фотографии</h2> {% endcomment %}
+                        </div>
+                    </div>
+
+                    <!-- Большой слайдер -->
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <div class="slider-for">
+                                {% for slide in slides %}
+                                    <div class="px-2">
+                                        <img src="{{ slide.image.url }}" alt="{{ slide.title }}"
+                                            class="img-fluid rounded-3"
+                                            style="width: 100%; height: 529px; object-fit: cover; object-position: center; border-radius: 4px;">
+                                    </div>
+                                {% empty %}
+                                    <div class="alert alert-dark">Нет изображений</div>
+                                {% endfor %}
                             </div>
-                        {% empty %}
-                            <div class="alert alert-dark">Нет изображений</div>
-                        {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Миниатюры с красными стрелками -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="slider-nav-wrapper position-relative">
+                                <button class="slick-custom-prev">
+                                    <img src="{% static 'img/move-left.png' %}" alt="Previous" width="48" height="48">
+                                </button>
+
+                                <div class="slider-nav">
+                                    {% for slide in slides %}
+                                        <div class="px-2">
+                                            <img src="{{ slide.image.url }}" alt="{{ slide.title }}"
+                                                class="img-fluid rounded-3"
+                                                style="width: 100%; height: 124px; object-fit: cover; object-position: center; border-radius: 4px; border: 2px solid transparent;">
+                                        </div>
+                                    {% endfor %}
+                                </div>
+
+                                <button class="slick-custom-next">
+                                    <img src="{% static 'img/move-right.png' %}" alt="Next" width="48" height="48">
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Миниатюры -->
-            <div class="row">
-                <div class="col-12">
-                    <div class="slider-nav">
-                        {% for slide in slides %}
-                            <div class="px-2">
-                                <img src="{{ slide.image.url }}" alt="{{ slide.title }}" class="img-fluid rounded-3" style="width: 100%; height: 90px; object-fit: cover; object-position: center 30%; border: 2px solid transparent;">
-                            </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
     <!-- Скрипты -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
-    <script>
-        $(document).ready(function(){
-            $('.slider-for').slick({
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                arrows: true,
-                fade: true,
-                asNavFor: '.slider-nav'
-            });
+        <script>
+            $(document).ready(function(){
+                // Большой слайдер - БЕЗ СТРЕЛОК
+                $('.slider-for').slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false,           // Убрали стрелки
+                    fade: true,
+                    asNavFor: '.slider-nav'
+                });
 
-            $('.slider-nav').slick({
-                slidesToShow: 4,
-                slidesToScroll: 1,
-                asNavFor: '.slider-for',
-                dots: false,
-                centerMode: true,
-                focusOnSelect: true,
-                responsive: [
-                    { breakpoint: 768, settings: { slidesToShow: 3 } },
-                    { breakpoint: 480, settings: { slidesToShow: 2 } }
-                ]
+                // Слайдер с миниатюрами - со стрелками
+                $('.slider-nav').slick({
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                    asNavFor: '.slider-for',
+                    dots: false,
+                    arrows: false,            // Отключаем стандартные стрелки
+                    centerMode: true,
+                    focusOnSelect: true,
+                    responsive: [
+                        { breakpoint: 768, settings: { slidesToShow: 3 } },
+                        { breakpoint: 480, settings: { slidesToShow: 2 } }
+                    ]
+                });
+
+                // Кастомные красные стрелки
+                $('.slick-custom-prev').click(function(){
+                    $('.slider-nav').slick('slickPrev');
+                });
+
+                $('.slick-custom-next').click(function(){
+                    $('.slider-nav').slick('slickNext');
+                });
             });
-        });
-    </script>
+        </script>
 </body>
 </html>
