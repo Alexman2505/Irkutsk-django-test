@@ -33,6 +33,17 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Медиа файлы (загружаемые пользователями)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# сжимаем картинку на сервере, а не в браузере пользователя
+THUMBNAIL_ALIASES = {
+    '': {
+        'slider_big': {
+            'size': (945, 529),
+            'crop': 'smart',
+        },  # для большого слайдера
+        'slider_thumb': {'size': (220, 124), 'crop': 'smart'},  # для миниатюр
+    },
+}
 # ----------------------------------------------------------
 
 
